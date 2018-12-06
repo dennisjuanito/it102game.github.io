@@ -1,9 +1,16 @@
 function Player() {
   Object.assign(this, novice); // default values
   this.unlockedProfessions = [novice, guardian, elementalist, necromancer];
+  this.previousSelectedProfession = '';
   this.playerName = playerName;
 
   this.changeProfession = function(professionObj) {
+    if (this.previousSelectedProfession && battle.playerBattle.profession != professionObj.profession) {
+      let professionImg = document.getElementsByClassName(this.previousSelectedProfession)[0];
+      console.log(professionImg);
+      professionImg.classList.remove('onSelect');
+    }
+    this.previousSelectedProfession = professionObj.profession;
     Object.assign(this, professionObj);
     player.displayPlayerInformation();
     addSkillImageToDOM();

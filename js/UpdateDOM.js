@@ -1,5 +1,5 @@
 function addSkillImageToDOM() {
-  console.log('I am here')
+  console.log('I am here');
   const skillWrappers = [...document.getElementsByClassName('skillImageWrapper')];
   skillWrappers.forEach((skillWrapper, index) => {
     let { name: skillName } = player.skills[index]; // get the skillName of current used profession.
@@ -26,6 +26,8 @@ function addProfessionImageToDOM() {
       professionWrapper.innerHTML = `<img src=${imagePath} data-professionname='${professionName}' class='profession ${professionName}' />`;
     }
   });
+  // Novice will be selected as a default profession
+  document.getElementsByClassName('novice')[0].classList.add('onSelect');
 }
 
 function addSkillEventListenerToDOM() {

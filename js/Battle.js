@@ -3,6 +3,7 @@ function Battle() {
   this.playerBattle = {
     health: player.health,
     mana: player.mana,
+    profession: player.profession,
     strength: player.strength,
     toughness: player.toughness,
     skills: [...player.skills]
@@ -247,7 +248,6 @@ function Battle() {
     let bossMovesContainerElement = document.querySelector('.bossMoves');
     playerMovesContainerElement.innerHTML = '';
     bossMovesContainerElement.innerHTML = '';
-    console.log(player);
     this.playerBattle = { ...eval(player.profession) };
     this.bossBattle = { ...this.boss };
     // bad practices / implementation
