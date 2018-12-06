@@ -6,6 +6,8 @@ function Player() {
   this.changeProfession = function(professionObj) {
     Object.assign(this, professionObj);
     player.displayPlayerInformation();
+    addSkillImageToDOM();
+    addSkillEventListenerToDOM();
   };
 
   this.addProfession = function(professionObj) {
@@ -31,4 +33,3 @@ function Player() {
 }
 
 let player = new Player();
-player.changeProfession(guardian);

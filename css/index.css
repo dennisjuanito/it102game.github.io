@@ -12,7 +12,7 @@ body {
   font-size: 14px;
   background-color: #282828;
   flex-direction: row;
-  justify-content: space-evenly
+  justify-content: space-evenly;
 }
 
 .whiteBackground {
@@ -237,7 +237,6 @@ body {
   justify-content: space-evenly;
 }
 
-
 .professionWrapper {
   width: 100%;
 }
@@ -253,4 +252,8 @@ body {
 }
 .novice {
   width: 80%;
+}
+
+.onSelect {
+  border: yellow solid 7px;
 }

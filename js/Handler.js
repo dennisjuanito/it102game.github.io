@@ -14,3 +14,8 @@ function handleRandomBossClick(event) {
   event.stopPropagation();
   return battle.selectRandomBoss();
 }
+
+function handleProfessionClick(event) {
+  event.stopPropagation();
+  return battle.selectProfession(this);
+}

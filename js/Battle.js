@@ -15,6 +15,13 @@ function Battle() {
     this.boss = { ...bosses[randomBoss] };
     this.displayBoss();
   };
+  this.selectProfession = function(professionImgObj) {
+    let { professionname: professionName } = professionImgObj.dataset;
+    professionImgObj.classList.add('onSelect');
+    player.changeProfession(eval(professionName));
+    this.playerBattle = { ...eval(professionName) };
+    this.displayAllHealthMana();
+  };
   this.regeneratePlayerMana = function() {
     if (this.playerBattle.mana > player.mana) {
       this.playerBattle.mana = player.mana;
@@ -24,6 +31,8 @@ function Battle() {
   };
   this.startFight = async function() {
     this.battle = true;
+    this.resetBattle();
+    await delay(2000);
     while (this.playerBattle.health > 0 && this.bossBattle.health > 0) {
       this.bossAttack();
       this.regeneratePlayerMana();
@@ -84,7 +93,6 @@ function Battle() {
           this.addCoolDownEffect(skillImgObj, cooldown);
         }
         break;
-        console.log("sd")
       case 'health':
         if (mana >= manaCost) {
           let increasedHealth = indexPower * (health / 100);
@@ -233,6 +241,18 @@ function Battle() {
         playerMovesContainerElement.innerHTML += `<p>${playerName} uses ${manaCost} mana to apply ${skillName} increase health by ${increasedHealth}</p>`;
         break;
     }
+  };
+  this.resetBattle = function() {
+    let playerMovesContainerElement = document.querySelector('.playerMoves');
+    let bossMovesContainerElement = document.querySelector('.bossMoves');
+    playerMovesContainerElement.innerHTML = '';
+    bossMovesContainerElement.innerHTML = '';
+    console.log(player);
+    this.playerBattle = { ...eval(player.profession) };
+    this.bossBattle = { ...this.boss };
+    // bad practices / implementation
+    addSkillImageToDOM();
+    addSkillEventListenerToDOM();
   };
   this.displayPlayerBuffEnds = function(buffName) {
     let playerMovesContainerElement = document.querySelector('.playerMoves');
