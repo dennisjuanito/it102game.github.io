@@ -185,7 +185,7 @@ function Battle() {
   this.displayBoss = function() {
     let bossImageElement = document.getElementsByClassName('bossImage')[0];
     let bossName = removeSpace(this.boss.name);
-    const bossImagePath = `../images/bossesimg/${bossName}.png`;
+    const bossImagePath = `images/bossesimg/${bossName}.png`;
     bossImageElement.src = bossImagePath;
     this.displayAllHealthMana();
   };

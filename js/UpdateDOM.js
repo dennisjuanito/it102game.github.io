@@ -2,7 +2,7 @@ function addSkillImageToDOM() {
   const skillWrappers = [...document.getElementsByClassName('skillImageWrapper')];
   skillWrappers.forEach((skillWrapper, index) => {
     let { name: skillName } = player.skills[index]; // get the skillName of current used profession.
-    let imagePath = `../images/skillsimg/${player.profession}/${removeSpace(skillName)}.png`;
+    let imagePath = `images/skillsimg/${player.profession}/${removeSpace(skillName)}.png`;
     if (!skillWrapper.innerHTML) {
       skillWrapper.innerHTML = `<img src=${imagePath} data-skillname='${skillName}' class='skill skill${index + 1}' />`;
       // skillWrapper.addEventListener();
