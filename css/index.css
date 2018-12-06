@@ -1,0 +1,225 @@
+/* global style */
+:root {
+  --light-red-bg-color: #ffe4c4;
+}
+
+* {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+}
+body {
+  display: flex;
+  width: 100%;
+  font-size: 14px;
+  background-color: #282828;
+}
+
+.whiteBackground {
+  background-color: #ffffff;
+}
+
+.lightBlueBackground {
+  background-color: #e0ffff;
+  width: 100%;
+}
+
+/* skills style */
+
+.tableSkills {
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+}
+
+.skillWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+  height: 220px;
+  color: aliceblue;
+  font-size: 1.8rem;
+  align-items: center;
+  align-content: space-around;
+  background-color: black;
+}
+.skillImageWrapper {
+  width: 70%;
+}
+
+.onCoolDown {
+  opacity: 0.1;
+}
+
+.skill {
+}
+
+.skill1 {
+  width: 100%;
+}
+
+.skill2 {
+  width: 100%;
+}
+
+.skill3 {
+  width: 100%;
+}
+
+.skill4 {
+  width: 100%;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.mainContainerUpperWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.bossContainer {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+}
+
+.playerContainer {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.bossHealthBarWrapper {
+  width: 90%;
+}
+.playerHealthBarText {
+  color: red;
+  font-size: 1.5rem;
+}
+
+.playerManaBarText {
+  color: aqua;
+  font-size: 1.5rem;
+}
+
+.battleReport {
+}
+
+.classSelectionContainer {
+  width: 20%;
+}
+
+.bossImageWrapper {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  height: 200px;
+  border: solid black 5px;
+  background-color: #e0ffff;
+}
+
+.bossImage {
+  width: 35%;
+}
+
+.bossHealthBarText {
+  color: red;
+  font-size: 1.5rem;
+}
+
+/* Player information Style */
+
+.playerInformation {
+  width: 50%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  border: solid black 5px;
+}
+
+.playerInformation h1 {
+  background-color: black;
+  color: white;
+  width: 100%;
+  font-size: 2rem;
+}
+
+.playerNameWrapper,
+.playerProfessionWrapper,
+.playerStrengthWrapper,
+.playerToughnessWrapper {
+  width: 100%;
+  background-color: var(--light-red-bg-color);
+}
+
+/* buttons style */
+.mainContainerButtonsWrapper {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.startFightButtonWrapper {
+  width: 97%;
+}
+
+.randomBossButtonWrapper {
+  width: 97%;
+}
+
+.startFightButton {
+  width: 100%;
+  height: 22px;
+}
+
+.randomBossButton {
+  width: 100%;
+  height: 22px;
+}
+
+/* battle report container */
+
+.battleReportContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: black;
+  color: #ffffff;
+  text-align: center;
+  justify-content: space-evenly;
+}
+
+.bossMovesWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 43%;
+  margin-bottom: 20px;
+}
+
+.playerMovesWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 54%;
+  margin-bottom: 20px;
+}
+
+.bossMoves {
+  width: 100%;
+  height: 400px;
+  background-color: #e0ffff;
+  color: black;
+  overflow-y: scroll;
+}
+
+.playerMoves {
+  width: 100%;
+  height: 400px;
+  background-color: #e0ffff;
+  color: black;
+  overflow-y: scroll;
+}

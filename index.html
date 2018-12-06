@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/index.css" />
+
+    <title>javascript-game</title>
+  </head>
+  <body>
+    <script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+    <script defer type="text/babel" src="js/Util.js"></script>
+    <script defer type="text/babel" src="js/Welcome.js"></script>
+    <script defer type="text/babel" src="data/professions.js"></script>
+    <script defer type="text/babel" src="data/bosses.js"></script>
+    <script defer type="text/babel" src="js/Player.js"></script>
+    <script defer type="text/babel" src="js/Handler.js"></script>
+    <script defer type="text/babel" src="js/UpdateDOM.js"></script>
+    <script defer type="text/babel" src="js/Battle.js"></script>
+    <script defer type="text/babel" src="js/Start.js"></script>
+
+    <div class="tableSkills">
+      <div class="skillWrapper">
+        <p>skill1</p>
+        <div class="skillImageWrapper"></div>
+      </div>
+      <div class="skillWrapper">
+        <p>skill2</p>
+        <div class="skillImageWrapper"></div>
+      </div>
+      <div class="skillWrapper">
+        <p>skill3</p>
+        <div class="skillImageWrapper"></div>
+      </div>
+      <div class="skillWrapper">
+        <p>basic attack</p>
+        <div class="skillImageWrapper"></div>
+      </div>
+    </div>
+    <section class="mainContainer">
+      <div class="mainContainerUpperWrapper">
+        <div class="bossContainer">
+          <div class="bossHealthBarWrapper"><label class="bossHealthBarText"></label></div>
+          <div class="bossImageWrapper whiteBackground"><img class="bossImage" /></div>
+          <div class="mainContainerButtonsWrapper">
+            <div class="startFightButtonWrapper"><button class="startFightButton">Start Fight</button></div>
+            <div class="randomBossButtonWrapper"><button class="randomBossButton">Random Boss</button></div>
+          </div>
+        </div>
+        <div class="playerContainer">
+          <div class="playerHealthBarContainer"><label class="playerHealthBarText"></label></div>
+          <div class="playerManaBarContainer"><label class="playerManaBarText"></label></div>
+          <div class="playerInformation whiteBackground ">
+            <h1>Player Information</h1>
+            <div class="playerNameWrapper">
+              <label>Player Name</label>
+              <p class="playerNameText lightBlueBackground"></p>
+            </div>
+            <div class="playerProfessionWrapper">
+              <label>Player Profession</label>
+              <p class="playerProfessionText lightBlueBackground"></p>
+            </div>
+            <div class="playerStrengthWrapper">
+              <label>Player Strength</label>
+              <p class="playerStrengthText lightBlueBackground"></p>
+            </div>
+            <div class="playerToughnessWrapper">
+              <label>Player Toughness</label>
+              <p class="playerToughnessText lightBlueBackground"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="battleReportContainer">
+        <div class="bossMovesWrapper">
+          <h1>Boss dMoves</h1>
+          <div class="bossMoves"></div>
+        </div>
+        <div class="playerMovesWrapper">
+          <h1>Player Moves</h1>
+          <div class="playerMoves"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="classSelectionContainer"></section>
+  </body>
+</html>
