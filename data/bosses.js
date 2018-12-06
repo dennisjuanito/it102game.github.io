@@ -9,7 +9,7 @@ const bosses = [
         name: 'mana break',
         type: 'damage',
         indexPower: 3,
-        chance: 15,
+        chance: 17,
         duration: 0
       },
       {
