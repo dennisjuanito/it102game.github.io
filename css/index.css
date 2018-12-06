@@ -11,6 +11,8 @@ body {
   width: 100%;
   font-size: 14px;
   background-color: #282828;
+  flex-direction: row;
+  justify-content: space-evenly
 }
 
 .whiteBackground {
@@ -222,4 +224,33 @@ body {
   background-color: #e0ffff;
   color: black;
   overflow-y: scroll;
+}
+
+/* profession selections styles */
+.professionSelectionContainer {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  color: #ffffff;
+  text-align: center;
+  background: black;
+  justify-content: space-evenly;
+}
+
+
+.professionWrapper {
+  width: 100%;
+}
+
+.guardian {
+  width: 80%;
+}
+.necromancer {
+  width: 80%;
+}
+.elementalist {
+  width: 80%;
+}
+.novice {
+  width: 80%;
 }

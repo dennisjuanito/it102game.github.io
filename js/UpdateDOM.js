@@ -13,6 +13,21 @@ function addSkillImageToDOM() {
   });
 }
 
+function addProfessionImageToDOM() {
+  const professionWrappers = [...document.getElementsByClassName('professionWrapper')];
+  let unlockedProfession = player.unlockedProfessions;
+  professionWrappers.forEach((professionWrapper, index) => {
+    let professionName = unlockedProfession[index].profession;
+    let imagePath = `images/professionimg/${professionName}.jpg`;
+    if (!professionWrapper.innerHTML) {
+      professionWrapper.innerHTML = `<img src=${imagePath} data-professionname='${professionName}' class='${professionName}' />`;
+    } else {
+      professionWrapper.innerHTML = '';
+      professionWrapper.innerHTML = `<img src=${imagePath} data-professionname='${professionName}' class='${professionName}' />`;
+    }
+  });
+}
+
 function addSkillEventListenerToDOM() {
   let skillImgElements = [...document.getElementsByClassName('skill')];
   skillImgElements.forEach(skillImgElement => {
@@ -40,3 +55,4 @@ addSkillImageToDOM();
 addSkillEventListenerToDOM();
 addStartFightEventListenerToDOM();
 addRandomBossEventListenerToDOM();
+addProfessionImageToDOM();

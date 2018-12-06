@@ -1,6 +1,6 @@
 function Player() {
   Object.assign(this, novice); // default values
-  this.unlockedProfessions = [{ ...novice }];
+  this.unlockedProfessions = [novice, guardian, elementalist, necromancer];
   this.playerName = playerName;
 
   this.changeProfession = function(professionObj) {
@@ -22,7 +22,6 @@ function Player() {
     let playerStrengthElement = document.querySelector('.playerStrengthText');
     let playerToughnessElement = document.querySelector('.playerToughnessText');
 
-
     playerNameElement.innerText = this.playerName;
     playerProfessionElement.innerText = this.profession;
     playerStrengthElement.innerText = this.strength;
@@ -32,6 +31,4 @@ function Player() {
 }
 
 let player = new Player();
-console.log(player)
 player.changeProfession(guardian);
-
