@@ -40,6 +40,8 @@ function Battle() {
       await delay(4000);
     }
     this.checkDeath();
+    this.displayBattleResult();
+    this.bossDefeatedReward();
     this.battle = false;
   };
   this.playerAttack = function(event, skillImgObj) {
@@ -163,7 +165,7 @@ function Battle() {
     }
   };
   this.bossAttack = function() {
-    let randomChance = __.random(1, 100);
+    let randomChance = createRandomChance();
     let { name: bossName, strength, toughness, health, skills } = this.bossBattle;
     let [skill1, skill2, skill3] = skills;
     if (randomChance <= skill1.chance && randomChance >= 1) {
@@ -246,10 +248,13 @@ function Battle() {
   this.resetBattle = function() {
     let playerMovesContainerElement = document.querySelector('.playerMoves');
     let bossMovesContainerElement = document.querySelector('.bossMoves');
+    let resultTextWrapperElement = document.querySelector('.resultTextWrapper');
+    resultTextWrapperElement.innerHTML = '';
     playerMovesContainerElement.innerHTML = '';
     bossMovesContainerElement.innerHTML = '';
     this.playerBattle = { ...eval(player.profession) };
     this.bossBattle = { ...this.boss };
+
     // bad practices / implementation
     addSkillImageToDOM();
     addSkillEventListenerToDOM();
@@ -262,6 +267,37 @@ function Battle() {
     let bossMovesContainerElement = document.querySelector('.bossMoves');
     bossMovesContainerElement.innerHTML += `<p>Boss buff ${buffName} has ends</p>`;
   };
-  this.bossDefeatedReward = function() {};
+  this.bossDefeatedReward = function() {
+    let { elementalist, guardian, necromancer } = this.boss.dropProfessionsRate;
+    let resultTextWrapperElement = document.querySelector('.resultTextWrapper');
+    let randomChance = createRandomChance();
+    console.log(randomChance);
+    console.log(elementalist);
+    console.log(guardian);
+    console.log(necromancer);
+    if (randomChance >= 1 && randomChance < elementalist) {
+      player.addProfession(elementalist);
+      resultTextWrapperElement.innerHTML += `<p>You have unlocked elementalist profession</p>`;
+    } else if (randomChance < guardian + elementalist) {
+      player.addProfession(guardian);
+      resultTextWrapperElement.innerHTML += `<p>You have unlocked guardian profession</p>`;
+    } else if (randomChance < necromancer + guardian + elementalist) {
+      player.addProfession(necromancer);
+      resultTextWrapperElement.innerHTML += `<p>You have unlocked necromancer profession</p>`;
+    } else {
+      // do nothing
+      resultTextWrapperElement.innerHTML += `<p>No profession drops in this battle</p>`;
+    }
+  };
+
+  this.displayBattleResult = function() {
+    let resultTextWrapperElement = document.querySelector('.resultTextWrapper');
+    if (this.playerBattle.health > this.bossBattle.health) {
+      resultTextWrapperElement.innerHTML += `<p>Player, ${player.playerName} beats boss, ${this.bossBattle.name}</p>`;
+    } else {
+      resultTextWrapperElement.innerHTML += `<p> boss, ${this.bossBattle.name} beats Player, ${player.playerName}</p>`;
+    }
+  };
+  this.displayBattleResult();
   this.updateHealthBar = function() {}; // for css
 }

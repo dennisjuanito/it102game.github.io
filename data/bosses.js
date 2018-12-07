@@ -30,9 +30,9 @@ const bosses = [
     dropProfessionsRate: {
       guardian: 0.04,
       ranger: 0.06,
-      necromancer: 0.0111,
+      necromancer: 40,
       mesmer: 0.02,
-      elementalist: 0.03,
+      elementalist: 20,
       warrior: 0.1,
       thief: 0.08,
       engineer: 0.11,

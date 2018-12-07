@@ -26,8 +26,6 @@ function addProfessionImageToDOM() {
       professionWrapper.innerHTML = `<img src=${imagePath} data-professionname='${professionName}' class='profession ${professionName}' />`;
     }
   });
-  // Novice will be selected as a default profession
-  document.getElementsByClassName('novice')[0].classList.add('onSelect');
 }
 
 function addSkillEventListenerToDOM() {
@@ -56,6 +54,10 @@ function addRandomBossEventListenerToDOM() {
 function addProfessionEventListenerToDOM() {
   const professionImgElements = [...document.getElementsByClassName('profession')];
   professionImgElements.forEach(professionImgElement => {
+    let professionName= professionImgElement.dataset.professionname;
+    // if () {
+
+    // }
     return (
       professionImgElement.addEventListener('click', handleProfessionClick),
       {
@@ -72,3 +74,5 @@ addStartFightEventListenerToDOM();
 addRandomBossEventListenerToDOM();
 addProfessionImageToDOM();
 addProfessionEventListenerToDOM();
+// Novice is the default class when the user enter the application for the first time
+document.getElementsByClassName('novice')[0].classList.add('onSelect');

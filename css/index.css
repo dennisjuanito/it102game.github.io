@@ -226,6 +226,26 @@ body {
   overflow-y: scroll;
 }
 
+/* battle result container style */
+.resultContainer {
+  width: 100%;
+  background-color: black;
+  color: black;
+  font-size: 2.0rem;
+  font-weight: 700;
+  text-align: center;
+  flex-direction: column;
+  margin-top: 20px;
+  height: 120px;
+  display: flex;
+}
+
+.resultTextWrapper {
+  background-color: var(--light-red-bg-color);
+  width: 95%;
+  height: 74px;
+  margin: auto;
+}
 /* profession selections styles */
 .professionSelectionContainer {
   display: flex;
