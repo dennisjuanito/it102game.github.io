@@ -8,8 +8,8 @@ function Battle() {
     toughness: player.toughness,
     skills: [...player.skills]
   };
-  this.bossBattle = Object.assign({}, axe);
-  this.boss = Object.assign({}, axe);
+  this.bossBattle = { ...axe };
+  this.boss = { ...axe };
   this.selectRandomBoss = function() {
     let randomBoss = __.random(0, bosses.length - 1);
     this.bossBattle = { ...bosses[randomBoss] };

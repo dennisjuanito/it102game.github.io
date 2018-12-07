@@ -6,7 +6,6 @@ function Player() {
   this.changeProfession = function(professionObj) {
     if (this.previousSelectedProfession && battle.playerBattle.profession != professionObj.profession) {
       let professionImg = document.getElementsByClassName(this.previousSelectedProfession)[0];
-      console.log(professionImg);
       professionImg.classList.remove('onSelect');
     } else {
       document.getElementsByClassName('novice')[0].classList.remove('onSelect');
