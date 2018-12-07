@@ -1,6 +1,6 @@
 function Player() {
   Object.assign(this, novice); // default values
-  this.unlockedProfessions = [novice, guardian, elementalist, necromancer];
+  this.unlockedProfessions = [novice, guardian];
   this.previousSelectedProfession = '';
   this.playerName = playerName;
   this.changeProfession = function(professionObj) {
@@ -12,7 +12,7 @@ function Player() {
     }
     this.previousSelectedProfession = professionObj.profession;
     Object.assign(this, professionObj);
-    player.displayPlayerInformation();
+    this.displayPlayerInformation();
     addSkillImageToDOM();
     addSkillEventListenerToDOM();
   };
@@ -21,8 +21,11 @@ function Player() {
     let isDuplicateProfession = __.find(this.unlockedProfessions, professionObj);
     if (isDuplicateProfession) {
       // do nothing
+      return true;
     } else {
       this.unlockedProfessions = [...this.unlockedProfessions, professionObj];
+      addProfessionEventListenerToDOM();
+      return false;
     }
   };
   this.displayPlayerInformation = function() {

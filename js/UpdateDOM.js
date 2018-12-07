@@ -15,7 +15,7 @@ function addSkillImageToDOM() {
 
 function addProfessionImageToDOM() {
   const professionWrappers = [...document.getElementsByClassName('professionWrapper')];
-  let unlockedProfession = player.unlockedProfessions;
+  let unlockedProfession = professions;
   professionWrappers.forEach((professionWrapper, index) => {
     let professionName = unlockedProfession[index].profession;
     let imagePath = `images/professionimg/${professionName}.jpg`;
@@ -54,17 +54,22 @@ function addRandomBossEventListenerToDOM() {
 function addProfessionEventListenerToDOM() {
   const professionImgElements = [...document.getElementsByClassName('profession')];
   professionImgElements.forEach(professionImgElement => {
-    let professionName= professionImgElement.dataset.professionname;
-    // if () {
-
-    // }
-    return (
-      professionImgElement.addEventListener('click', handleProfessionClick),
-      {
-        once: false,
-        capture: true
-      }
-    );
+    let professionName = professionImgElement.dataset.professionname;
+    let isProfessionUnlocked = player.unlockedProfessions.find(professionElement => {
+      return professionElement.profession === professionName;
+    });
+    if (isProfessionUnlocked) {
+      professionImgElement.parentElement.parentElement.classList.remove('onLockedProfessionWrapper');
+      return (
+        professionImgElement.addEventListener('click', handleProfessionClick),
+        {
+          once: false,
+          capture: true
+        }
+      );
+    } else {
+      professionImgElement.parentElement.parentElement.classList.add('onLockedProfessionWrapper');
+    }
   });
 }
 

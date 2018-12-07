@@ -48,7 +48,7 @@ body {
 }
 
 .onCoolDown {
-  opacity: 0.1;
+  opacity: 0.2;
 }
 
 .skill {
@@ -125,7 +125,7 @@ body {
 }
 
 .bossImage {
-  width: 35%;
+  width: 50%;
 }
 
 .bossHealthBarText {
@@ -231,7 +231,7 @@ body {
   width: 100%;
   background-color: black;
   color: black;
-  font-size: 2.0rem;
+  font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
   flex-direction: column;
@@ -276,4 +276,9 @@ body {
 
 .onSelect {
   border: yellow solid 7px;
+}
+
+.onLockedProfessionWrapper {
+  opacity: 0.2;
+  width: 100%;
 }

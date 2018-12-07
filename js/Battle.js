@@ -268,22 +268,34 @@ function Battle() {
     bossMovesContainerElement.innerHTML += `<p>Boss buff ${buffName} has ends</p>`;
   };
   this.bossDefeatedReward = function() {
-    let { elementalist, guardian, necromancer } = this.boss.dropProfessionsRate;
+    let { dropProfessionsRate } = this.boss;
     let resultTextWrapperElement = document.querySelector('.resultTextWrapper');
     let randomChance = createRandomChance();
     console.log(randomChance);
     console.log(elementalist);
     console.log(guardian);
     console.log(necromancer);
-    if (randomChance >= 1 && randomChance < elementalist) {
-      player.addProfession(elementalist);
-      resultTextWrapperElement.innerHTML += `<p>You have unlocked elementalist profession</p>`;
-    } else if (randomChance < guardian + elementalist) {
-      player.addProfession(guardian);
-      resultTextWrapperElement.innerHTML += `<p>You have unlocked guardian profession</p>`;
-    } else if (randomChance < necromancer + guardian + elementalist) {
-      player.addProfession(necromancer);
-      resultTextWrapperElement.innerHTML += `<p>You have unlocked necromancer profession</p>`;
+    if (randomChance >= 1 && randomChance < dropProfessionsRate.elementalist) {
+      let isProfessionUnlocked = player.addProfession(elementalist);
+      if (isProfessionUnlocked) {
+        resultTextWrapperElement.innerHTML += `<p>The boss drops is elementalist profession, but you have already unlocked this profession</p>`;
+      } else {
+        resultTextWrapperElement.innerHTML += `<p>You have unlocked elementalist profession</p>`;
+      }
+    } else if (randomChance < dropProfessionsRate.guardian + dropProfessionsRate.elementalist) {
+      let isProfessionUnlocked = player.addProfession(guardian);
+      if (isProfessionUnlocked) {
+        resultTextWrapperElement.innerHTML += `<p>The boss drops is guardian profession, but you have already unlocked this profession</p>`;
+      } else {
+        resultTextWrapperElement.innerHTML += `<p>You have unlocked guardian profession</p>`;
+      }
+    } else if (randomChance < dropProfessionsRate.necromancer + dropProfessionsRate.guardian + dropProfessionsRate.elementalist) {
+      let isProfessionUnlocked = player.addProfession(necromancer);
+      if (isProfessionUnlocked) {
+        resultTextWrapperElement.innerHTML += `<p>The boss drops is necromancer profession, but you have already unlocked this profession</p>`;
+      } else {
+        resultTextWrapperElement.innerHTML += `<p>You have unlocked necromancer profession</p>`;
+      }
     } else {
       // do nothing
       resultTextWrapperElement.innerHTML += `<p>No profession drops in this battle</p>`;
@@ -298,6 +310,5 @@ function Battle() {
       resultTextWrapperElement.innerHTML += `<p> boss, ${this.bossBattle.name} beats Player, ${player.playerName}</p>`;
     }
   };
-  this.displayBattleResult();
   this.updateHealthBar = function() {}; // for css
 }
