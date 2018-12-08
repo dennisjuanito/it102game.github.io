@@ -1,16 +1,3 @@
-function addEventListernetToSubmitButton() {
-  let submitButtonElement = document.querySelector('.submitButton');
-  console.log(submitButtonElement);
-  submitButtonElement.addEventListener('click', event => {
-    event.preventDefault();
-    event.stopPropagation();
-    let playerNameInputElement = document.querySelector('.playerNameInput');
-    playerName = playerNameInputElement.value;
-    savePlayerNameToLocalStorage(playerName);
-    location.reload();
-  });
-}
-
 function savePlayerNameToLocalStorage(name) {
   console.log(name);
   let playerNameToBeSaved = {
@@ -33,7 +20,3 @@ function getPlayerName() {
 }
 
 let playerName = getPlayerName();
-// add event listerner if the users havent input their player name
-if (!playerName) {
-  addEventListernetToSubmitButton();
-}

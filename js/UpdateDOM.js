@@ -81,6 +81,24 @@ function selectPlayerCurrentProfession() {
   document.getElementsByClassName(player.profession)[0].classList.add('onSelect');
 }
 
+function addEventListernetToSubmitButton() {
+  let submitButtonElement = document.querySelector('.submitButton');
+  console.log(submitButtonElement);
+  submitButtonElement.addEventListener('click', event => {
+    event.preventDefault();
+    event.stopPropagation();
+    let playerNameInputElement = document.querySelector('.playerNameInput');
+    playerName = playerNameInputElement.value;
+    savePlayerNameToLocalStorage(playerName);
+    location.reload();
+  });
+}
+
+// add event listerner if the users havent input their player name
+if (!playerName) {
+  addEventListernetToSubmitButton();
+}
+
 addSkillImageToDOM();
 addSkillEventListenerToDOM();
 addStartFightEventListenerToDOM();
