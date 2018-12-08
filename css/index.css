@@ -57,15 +57,21 @@ button:focus {
   width: 70%;
 }
 
+.copyRightText {
+  font-size: 1.4rem;
+}
+
 .welcomeText {
   width: 80%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 300px;
+  margin-bottom: 250px;
 }
 .subWelcomeText {
+  margin-top: 30px;
   font-size: 1rem;
+  line-height: 160%;
 }
 
 .playerNameInput {
