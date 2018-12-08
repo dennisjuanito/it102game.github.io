@@ -10,18 +10,34 @@
     <title>javascript-game</title>
   </head>
   <body>
-    <script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <!-- <script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script> -->
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
-    <script defer type="text/babel" src="js/Util.js"></script>
-    <script defer type="text/babel" src="js/Welcome.js"></script>
-    <script defer type="text/babel" src="data/professions.js"></script>
-    <script defer type="text/babel" src="data/bosses.js"></script>
-    <script defer type="text/babel" src="js/Player.js"></script>
-    <script defer type="text/babel" src="js/Handler.js"></script>
-    <script defer type="text/babel" src="js/UpdateDOM.js"></script>
-    <script defer type="text/babel" src="js/Battle.js"></script>
-    <script defer type="text/babel" src="js/Start.js"></script>
+    <!--
+      <script defer type="text/babel" src="js/Util.js"></script>
+      <script defer type="text/babel" src="js/Welcome.js"></script>
+      <script defer type="text/babel" src="data/professions.js"></script>
+      <script defer type="text/babel" src="data/bosses.js"></script>
+      <script defer type="text/babel" src="js/Player.js"></script>
+      <script defer type="text/babel" src="js/Handler.js"></script>
+      <script defer type="text/babel" src="js/UpdateDOM.js"></script>
+      <script defer type="text/babel" src="js/Battle.js"></script>
+      <script defer type="text/babel" src="js/Start.js"></script>
+      <script defer type="text/babel" src="js/Save.js"></script>
+    -->
 
+    <script defer src="js/Util.js"></script>
+    <script defer src="data/professions.js"></script>
+    <script defer src="data/bosses.js"></script>
+    <script defer src="js/Player.js"></script>
+    <script defer src="js/Welcome.js"></script>
+    <script defer src="js/LoadSave.js"></script>
+    <script defer src="js/Handler.js"></script>
+    <script defer src="js/UpdateDOM.js"></script>
+    <script defer src="js/Battle.js"></script>
+    <script defer src="js/Start.js"></script>
+    <script defer src="js/Save.js"></script>
+
+    <!-- <div> -->
     <div class="tableSkills">
       <div class="skillWrapper">
         <p>skill1</p>
@@ -72,6 +88,7 @@
               <p class="playerToughnessText lightBlueBackground"></p>
             </div>
           </div>
+          <div class="saveButtonWrapper"><button class="saveButton">Save</button></div>
         </div>
       </div>
       <div class="battleReportContainer">

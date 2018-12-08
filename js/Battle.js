@@ -271,10 +271,6 @@ function Battle() {
     let { dropProfessionsRate } = this.boss;
     let resultTextWrapperElement = document.querySelector('.resultTextWrapper');
     let randomChance = createRandomChance();
-    console.log(randomChance);
-    console.log(elementalist);
-    console.log(guardian);
-    console.log(necromancer);
     if (randomChance >= 1 && randomChance < dropProfessionsRate.elementalist) {
       let isProfessionUnlocked = player.addProfession(elementalist);
       if (isProfessionUnlocked) {

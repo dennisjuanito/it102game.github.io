@@ -73,11 +73,20 @@ function addProfessionEventListenerToDOM() {
   });
 }
 
+function addSaveEventListener() {
+  let saveButtonElement = document.querySelector('.saveButton');
+  saveButtonElement.addEventListener('click', handleSaveClick);
+}
+
+function selectPlayerCurrentProfession() {
+  document.getElementsByClassName(player.profession)[0].classList.add('onSelect');
+}
+
 addSkillImageToDOM();
 addSkillEventListenerToDOM();
 addStartFightEventListenerToDOM();
 addRandomBossEventListenerToDOM();
 addProfessionImageToDOM();
 addProfessionEventListenerToDOM();
-// Novice is the default class when the user enter the application for the first time
-document.getElementsByClassName('novice')[0].classList.add('onSelect');
+addSaveEventListener();
+selectPlayerCurrentProfession();

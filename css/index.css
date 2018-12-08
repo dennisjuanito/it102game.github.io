@@ -184,6 +184,18 @@ body {
   height: 22px;
 }
 
+.saveButtonWrapper {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+}
+
+.saveButton {
+  width: 100%;
+  height: 22px;
+  margin-top: 17px;
+}
+
 /* battle report container */
 
 .battleReportContainer {

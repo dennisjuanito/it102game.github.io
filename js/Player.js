@@ -1,7 +1,11 @@
-function Player() {
-  Object.assign(this, novice); // default values
-  this.unlockedProfessions = [novice, guardian];
-  this.previousSelectedProfession = '';
+function Player(isDefault, savedPlayerObj) {
+  if (isDefault) {
+    Object.assign(this, novice); // default values
+    this.unlockedProfessions = [novice, guardian];
+    this.previousSelectedProfession = '';
+  } else {
+    Object.assign(this, savedPlayerObj);
+  }
   this.playerName = playerName;
   this.changeProfession = function(professionObj) {
     if (this.previousSelectedProfession && battle.playerBattle.profession != professionObj.profession) {
@@ -41,5 +45,3 @@ function Player() {
   };
   this.displayPlayerInformation();
 }
-
-let player = new Player();
