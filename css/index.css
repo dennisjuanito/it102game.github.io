@@ -4,9 +4,11 @@
 }
 
 * {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
+  font-family: 'Roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
 }
 body {
+  background-color: var(--light-red-bg-color);
+  height: 100vh;
 }
 
 .allContainerWrapper {
@@ -16,6 +18,7 @@ body {
   background-color: #282828;
   flex-direction: row;
   justify-content: space-evenly;
+  height: 100%;
 }
 .whiteBackground {
   background-color: #ffffff;
@@ -24,6 +27,68 @@ body {
 .lightBlueBackground {
   background-color: #e0ffff;
   width: 100%;
+}
+
+/* .welcomeContainer styles */
+.welcomeContainer {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  font-size: 5rem;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.playerNameInputWrapper {
+  font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  width: 70%;
+}
+
+.welcomeText {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 300px;
+}
+.subWelcomeText {
+  font-size: 1rem;
+}
+
+.playerNameInput {
+  width: 35%;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  outline: none;
+  font-size: 1.9rem;
+}
+
+input[type='text']:focus {
+  border: 3px solid dodgerblue;
+  background-color: gainsboro;
+}
+
+.yourPlayerNameLabel {
+  text-align: center;
+  border: 3px solid #ccc;
+  border-right: none;
+  width: 23%;
+  color: white;
+  font-size: 2rem;
+  background-color: black;
+  font-size: 1.9rem;
+}
+
+.submitButton {
+  border: 3px solid #ccc;
+  border-left: none;
+  width: 10%;
+  font-size: 1.9rem;
 }
 
 /* skills style */

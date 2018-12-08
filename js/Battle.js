@@ -41,7 +41,6 @@ function Battle() {
     }
     this.checkDeath();
     this.displayBattleResult();
-    this.bossDefeatedReward();
     this.battle = false;
   };
   this.playerAttack = function(event, skillImgObj) {
@@ -302,6 +301,7 @@ function Battle() {
     let resultTextWrapperElement = document.querySelector('.resultTextWrapper');
     if (this.playerBattle.health > this.bossBattle.health) {
       resultTextWrapperElement.innerHTML += `<p>Player, ${player.playerName} beats boss, ${this.bossBattle.name}</p>`;
+      this.bossDefeatedReward();
     } else {
       resultTextWrapperElement.innerHTML += `<p> boss, ${this.bossBattle.name} beats Player, ${player.playerName}</p>`;
     }

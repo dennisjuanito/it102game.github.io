@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/index.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" />
 
     <title>javascript-game</title>
   </head>
@@ -24,8 +25,22 @@
     <script defer src="js/Start.js"></script>
 
     <div class="welcomeContainer">
-      <h1>Hi Welcome to this game</h1>
-      <label>Please enter your player name</label> <input class="playerNameInput" name="" value="" /><button class="submitButton">Submit</button>
+      <div class="welcomeText">
+        <h3>Skilahunt</h3>
+        <div class="subWelcomeText">
+          <p>A boss fighting game, where player can choose between different professions</p>
+          <p>Players will have novice as their first unlocked profession</p>
+          <p>They can unlocked more profession by beating bosses</p>
+          <p>Each bosses has different profession drop rate</p>
+          <p>Example: If players beat boss A, players can have 2.5 percent chance to unlock necromancer profession</p>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="playerNameInputWrapper">
+        <div class="yourPlayerNameLabel"><label>Your player name</label></div>
+        <input class="playerNameInput" name="" value="" type="text" /><button class="submitButton">Submit</button>
+      </div>
     </div>
     <div class="allContainerWrapper"></div>
   </body>

@@ -9,11 +9,15 @@ function savePlayerNameToLocalStorage(name) {
 function getPlayerName() {
   let savedPlayerName = JSON.parse(localStorage.getItem('savedPlayerName'));
   if (savedPlayerName) {
-    let welcomeContainerElement = document.querySelector('.welcomeContainer');
-    document.body.removeChild(welcomeContainerElement);
-    let allContainerWrapperElement = document.querySelector('.allContainerWrapper');
-    allContainerWrapperElement.innerHTML = allContainerWrapperInnerHtml;
-    return savedPlayerName.playerName;
+    if (savedPlayerName.playerName) {
+      let welcomeContainerElement = document.querySelector('.welcomeContainer');
+      document.body.removeChild(welcomeContainerElement);
+      let allContainerWrapperElement = document.querySelector('.allContainerWrapper');
+      allContainerWrapperElement.innerHTML = allContainerWrapperInnerHtml;
+      return savedPlayerName.playerName;
+    } else {
+      return '';
+    }
   } else {
     return '';
   }
