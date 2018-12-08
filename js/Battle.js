@@ -34,12 +34,12 @@ function Battle() {
     this.battle = true;
     this.resetBattle();
     await delay(2000);
+    // this.displayAllHealthMana();
     while (this.playerBattle.health > 0 && this.bossBattle.health > 0) {
       this.bossAttack();
       this.regeneratePlayerMana();
       await delay(4000);
     }
-    this.checkDeath();
     this.displayBattleResult();
     this.battle = false;
   };
@@ -58,10 +58,10 @@ function Battle() {
         let damage;
         if (mana >= manaCost) {
           if (skillName === 'basic attack') {
-            damage = this.calculateDamage(strength / 2, indexPower / 2, 0, 0);
+            damage = round(this.calculateDamage(strength / 2, indexPower / 2, 0, 0));
             this.bossBattle.health -= damage;
           } else {
-            damage = this.calculateDamage(strength, indexPower, this.bossBattle.toughness, this.boss.health);
+            damage = round(this.calculateDamage(strength, indexPower, this.bossBattle.toughness, this.boss.health));
             this.bossBattle.health -= damage;
           }
           this.playerBattle.mana -= manaCost;
@@ -71,7 +71,7 @@ function Battle() {
         break;
       case 'toughness':
         if (mana >= manaCost) {
-          let increasedToughness = indexPower * toughness;
+          let increasedToughness = round(indexPower * toughness);
           this.playerBattle.toughness += increasedToughness;
           this.playerBattle.mana -= manaCost;
           this.displayPlayerMoves(player.playerName, skillName, null, increasedToughness, null, type, duration, null, manaCost);
@@ -84,7 +84,7 @@ function Battle() {
         break;
       case 'strength':
         if (mana >= manaCost) {
-          let increasedStrength = indexPower * strength;
+          let increasedStrength = round(indexPower * strength);
           this.playerBattle.strength += increasedStrength;
           this.playerBattle.mana -= manaCost;
           this.displayPlayerMoves(player.playerName, skillName, increasedStrength, null, null, type, duration, null, manaCost);
@@ -97,7 +97,7 @@ function Battle() {
         break;
       case 'health':
         if (mana >= manaCost) {
-          let increasedHealth = indexPower * (health / 100);
+          let increasedHealth = round(indexPower * (player.health / 100));
           this.playerBattle.health += increasedHealth;
           if (this.playerBattle.health > player.health) {
             this.playerBattle.health = player.health;
@@ -129,16 +129,16 @@ function Battle() {
       case 'damage':
         let damage;
         if (skillName === 'basic attack') {
-          damage = this.calculateDamage(strength / 2, indexPower / 2, 0, 0);
+          damage = round(this.calculateDamage(strength / 2, indexPower / 2, 0, 0));
           this.playerBattle.health -= damage;
         } else {
-          damage = this.calculateDamage(strength, indexPower, this.playerBattle.toughness, player.health);
+          damage = round(this.calculateDamage(strength, indexPower, this.playerBattle.toughness, player.health));
           this.playerBattle.health -= damage;
         }
         this.displayBossMoves(bossName, skillName, null, null, null, type, null, damage);
         break;
       case 'toughness':
-        let increasedToughness = indexPower * toughness;
+        let increasedToughness = round(indexPower * toughness);
         this.bossBattle.toughness += increasedToughness;
         this.bossBattle.toughness = this.boss.toughness;
         this.displayBossMoves(bossName, skillName, null, increasedToughness, null, type, duration, null);
@@ -146,7 +146,7 @@ function Battle() {
         this.displayBossBuffEnds(skillName);
         break;
       case 'strength':
-        let increasedStrength = indexPower * strength;
+        let increasedStrength = round(indexPower * strength);
         this.bossBattle.strength += increasedStrength;
         this.bossBattle.strength = this.boss.strength;
         this.displayBossMoves(bossName, skillName, increasedStrength, null, null, type, duration, null);
@@ -154,8 +154,8 @@ function Battle() {
         this.displayBossBuffEnds(skillName);
         break;
       case 'health':
-        let increasedHealth = indexPower * (health / 100);
-        this.bossBattle.health += indexPower * (health / 100);
+        let increasedHealth = round(indexPower * (this.boss.health / 100));
+        this.bossBattle.health += increasedHealth;
         if (this.bossBattle.health > this.boss.health) {
           this.bossBattle.health = this.boss.health;
         }
@@ -183,11 +183,19 @@ function Battle() {
     }
     this.displayAllHealthMana();
   };
+  this.checkDeath = function() {
+    if (this.playerBattle.health < 0) {
+      this.playerBattle.health = 0;
+    }
+    if (this.bossBattle.health < 0) {
+      this.bossBattle.health = 0;
+    }
+  };
   this.displayAllHealthMana = function() {
     let bossHealthBarElement = document.getElementsByClassName('bossHealthBarText')[0];
     let playerHealthBarElement = document.getElementsByClassName('playerHealthBarText')[0];
     let playerManaBarElement = document.getElementsByClassName('playerManaBarText')[0];
-
+    this.checkDeath();
     bossHealthBarElement.innerText = `${this.boss.name} health ${this.bossBattle.health} / ${this.boss.health}`;
     playerHealthBarElement.innerText = `${player.playerName} health ${this.playerBattle.health} / ${player.health}`;
     playerManaBarElement.innerText = `${player.playerName} mana ${this.playerBattle.mana} / ${player.mana}`;
@@ -201,15 +209,7 @@ function Battle() {
   };
   this.displayBoss();
   this.displayAllHealthMana();
-  this.checkDeath = function() {
-    if (this.playerBattle.health < 0) {
-      this.playerBattle.health = 0;
-    }
-    if (this.bossBattle.health < 0) {
-      this.bossBattle.health = 0;
-    }
-    this.displayAllHealthMana();
-  };
+
   this.displayBossMoves = function(bossName, skillName, increasedStrength, increasedToughness, increasedHealth, type, duration, damage) {
     let bossMovesContainerElement = document.querySelector('.bossMoves');
     switch (type) {

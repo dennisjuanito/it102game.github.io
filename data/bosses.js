@@ -88,7 +88,7 @@ const bosses = [
       {
         name: 'moonlight recovery',
         type: 'health',
-        indexPower: 8,
+        indexPower: 10,
         chance: 35,
         duration: 0
       },

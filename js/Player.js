@@ -8,6 +8,7 @@ function Player(isDefault, savedPlayerObj) {
   }
   this.playerName = playerName;
   this.changeProfession = function(professionObj) {
+    // remove yellow selection from the previous selected profession
     if (this.previousSelectedProfession && battle.playerBattle.profession != professionObj.profession) {
       let professionImg = document.getElementsByClassName(this.previousSelectedProfession)[0];
       professionImg.classList.remove('onSelect');
