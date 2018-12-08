@@ -7,6 +7,9 @@
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
 }
 body {
+}
+
+.allContainerWrapper {
   display: flex;
   width: 100%;
   font-size: 14px;
@@ -14,7 +17,6 @@ body {
   flex-direction: row;
   justify-content: space-evenly;
 }
-
 .whiteBackground {
   background-color: #ffffff;
 }

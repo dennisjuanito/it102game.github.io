@@ -1,5 +1,4 @@
 function addSkillImageToDOM() {
-  console.log('I am here');
   const skillWrappers = [...document.getElementsByClassName('skillImageWrapper')];
   skillWrappers.forEach((skillWrapper, index) => {
     let { name: skillName } = player.skills[index]; // get the skillName of current used profession.
