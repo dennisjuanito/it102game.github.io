@@ -1,2 +1,2 @@
 # skilahunt
- https://dennisjuanito.github.io/skilahunt/
+https://djuanit0x.github.io/skilahunt/
